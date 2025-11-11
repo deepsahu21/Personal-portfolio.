@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Holograph Labs · Machine Intelligence Architect</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --primary: #111827;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --grid-line: rgba(17, 24, 39, 0.06);
+      font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+      color: var(--primary);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff, #eef2ff);
+      color: var(--primary);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    header {
+      padding: 2.5rem clamp(2rem, 7vw, 6rem) 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: rgba(17, 24, 39, 0.6);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      gap: 4rem;
+      padding: 0 clamp(2rem, 7vw, 6rem) 5rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 750px;
+    }
+
+    .hero h2 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(17, 24, 39, 0.6);
+      max-width: 55ch;
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .panel {
+      padding: 2rem;
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 30px 60px -40px rgba(15, 23, 42, 0.3);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .panel span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+    }
+
+    .panel h3 {
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .panel p {
+      color: rgba(17, 24, 39, 0.65);
+      line-height: 1.6;
+    }
+
+    .callout {
+      padding: 2.5rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      background: linear-gradient(120deg, rgba(37, 99, 235, 0.12), rgba(59, 130, 246, 0));
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .showcase {
+      display: grid;
+      gap: 1.5rem;
+      padding: 2rem;
+      border-radius: 1.75rem;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(18px);
+    }
+
+    .showcase h3 {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: rgba(17, 24, 39, 0.65);
+    }
+
+    .showcase ul {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .showcase li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      border-radius: 1rem;
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    .showcase li span {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(17, 24, 39, 0.5);
+    }
+
+    .callout strong {
+      font-size: 1.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    .callout button {
+      justify-self: start;
+      padding: 0.8rem 1.8rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 0  clamp(2rem, 7vw, 6rem) 3rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(17, 24, 39, 0.5);
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <header>
+    <h1>Holograph Labs</h1>
+    <nav>
+      <a href="#focus">Focus</a>
+      <a href="#models">Models</a>
+      <a href="#signals">Signals</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Machine intelligence with the calm precision of holographic light.</h2>
+      <p>I design data systems where automation meets aesthetics—human-centered ML products, transparent analytics rituals, and empathetic agent interfaces.</p>
+    </section>
+
+    <section id="focus" class="panels">
+      <article class="panel">
+        <span>01</span>
+        <h3>Predictive Fabrics</h3>
+        <p>Time-series choreographies for logistics, biotech, and climate networks using differentiable simulators.</p>
+      </article>
+      <article class="panel">
+        <span>02</span>
+        <h3>Ethical Lenses</h3>
+        <p>Frameworks for bias auditing, interpretability overlays, and neural alignment scoring.</p>
+      </article>
+      <article class="panel">
+        <span>03</span>
+        <h3>Immersive Reports</h3>
+        <p>Spatial data narratives that project insights as ambient projections across dashboards, VR, and voice.</p>
+      </article>
+    </section>
+
+    <section id="models" class="showcase">
+      <h3>Model Releases</h3>
+      <ul>
+        <li>
+          AuroraMesh Forecasting · Atmospheric nowcasting for smart cities
+          <span>v3.2</span>
+        </li>
+        <li>
+          Kindred Recommender · Human-centric creativity recommendations
+          <span>beta</span>
+        </li>
+        <li>
+          LucidSentinel · Safety agent for hallucination and drift monitoring
+          <span>open</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="signals" class="callout">
+      <strong>Currently prototyping a multi-agent observability stack for AI safety teams.</strong>
+      <p>Follow along for visual systems, open research notes, and collaborative experiments that invite stakeholders into the lab.</p>
+      <button>Request Access</button>
+    </section>
+  </main>
+
+  <footer id="contact">Connect · hello@holographlabs.io · Signal: @holographlabs</footer>
+</body>
+</html>

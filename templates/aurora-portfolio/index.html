@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora Field Notes · Data Futurist</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg-dark: radial-gradient(circle at top, rgba(76, 201, 240, 0.18), transparent 55%), #050612;
+      --bg-light: linear-gradient(135deg, #f8fbff, #eef2ff);
+      --text-dark: rgba(255, 255, 255, 0.88);
+      --text-light: #0f172a;
+      --accent: #4cc9f0;
+      --accent-2: #c77dff;
+      font-family: "Sora", "Inter", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      display: grid;
+      place-items: center;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    main {
+      width: min(1080px, 100%);
+      border-radius: 2.5rem;
+      padding: clamp(2.5rem, 5vw, 4rem);
+      background: rgba(6, 10, 30, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 40px 90px -60px rgba(76, 201, 240, 0.65);
+      display: grid;
+      gap: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    main::before {
+      content: "";
+      position: absolute;
+      inset: -20% 35% 60% -10%;
+      background: linear-gradient(120deg, rgba(76, 201, 240, 0.5), rgba(199, 125, 255, 0.2));
+      filter: blur(90px);
+      opacity: 0.6;
+      pointer-events: none;
+      transform: rotate(8deg);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      letter-spacing: 0.6em;
+      text-transform: uppercase;
+    }
+
+    header a {
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.3);
+      color: inherit;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    header a:hover {
+      background: rgba(76, 201, 240, 0.18);
+    }
+
+    .intro {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 1.5rem;
+      max-width: 720px;
+    }
+
+    .intro h2 {
+      font-size: clamp(3.2rem, 6vw, 5.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .intro p {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+    }
+
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .module {
+      padding: 1.8rem;
+      border-radius: 1.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(10, 16, 40, 0.65);
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .module span {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .module strong {
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .module p {
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      margin-top: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .timeline-item strong {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      min-width: 90px;
+    }
+
+    .timeline-item p {
+      flex: 1;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
+    }
+
+    .contact-footer {
+      position: relative;
+      z-index: 1;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        background: var(--bg-light);
+        color: var(--text-light);
+      }
+
+      main {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        box-shadow: 0 30px 90px -70px rgba(15, 23, 42, 0.35);
+      }
+
+      main::before {
+        background: linear-gradient(120deg, rgba(76, 201, 240, 0.3), rgba(199, 125, 255, 0.16));
+      }
+
+      .intro p,
+      .module p,
+      .timeline-item p {
+        color: rgba(15, 23, 42, 0.65);
+      }
+
+      .module {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+      }
+
+      header a {
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        background: rgba(15, 23, 42, 0.04);
+      }
+
+      header a:hover {
+        background: rgba(76, 201, 240, 0.12);
+      }
+
+      .contact-footer {
+        color: rgba(15, 23, 42, 0.55);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Aurora Field Notes</h1>
+      <a href="#contact">Connect</a>
+    </header>
+
+    <section class="intro">
+      <h2>Exploring ambient intelligence for climate, health, and creative discovery.</h2>
+      <p>I'm a data futurist crafting sensory pipelines that translate complex signals into poetic decision systems. Every experiment is a field note—transparent, modular, and ready for collaboration.</p>
+    </section>
+
+    <section class="modules">
+      <article class="module">
+        <span>Model Atlas</span>
+        <strong>Adaptive forecasting suite</strong>
+        <p>Lightweight transformer stacks tuned on planetary telemetry with uncertainty-aware dashboards.</p>
+      </article>
+      <article class="module">
+        <span>Signal Garden</span>
+        <strong>Generative data storytelling</strong>
+        <p>Interactive ambient stories grown from multimodal datasets, blending visuals, sound, and text.</p>
+      </article>
+      <article class="module">
+        <span>Ethics Channel</span>
+        <strong>Responsible AI choreography</strong>
+        <p>Participatory workshops, interpretability rituals, and governance templates for distributed teams.</p>
+      </article>
+    </section>
+
+    <section class="timeline">
+      <article class="timeline-item">
+        <strong>2024</strong>
+        <p>Led the Aurora Observatory—an initiative modeling micro-climate resilience with active learning sensors.</p>
+      </article>
+      <article class="timeline-item">
+        <strong>2023</strong>
+        <p>Published "Sensory Interfaces" exploring synesthetic dashboards for AI oversight.</p>
+      </article>
+      <article class="timeline-item">
+        <strong>Now</strong>
+        <p>Open to collaborations on planetary-scale inference, mindful automation, and storytelling with data.</p>
+      </article>
+    </section>
+
+    <footer id="contact" class="contact-footer">
+      Contact · aurora@fieldnotes.ai · Signal: @aurorafield
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Signals · AI Portfolio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: radial-gradient(circle at 20% 20%, rgba(109, 174, 255, 0.2), transparent 50%),
+             radial-gradient(circle at 80% 0%, rgba(255, 117, 208, 0.25), transparent 55%),
+             #050510;
+      --card: rgba(13, 18, 40, 0.7);
+      --accent: #7dd0ff;
+      --accent-2: #ff84f2;
+      --muted: rgba(255, 255, 255, 0.6);
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      background: var(--bg);
+      color: white;
+      padding: 3rem clamp(1.5rem, 3vw, 4rem);
+      backdrop-filter: blur(40px);
+    }
+
+    header, footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      display: grid;
+      gap: 3rem;
+      align-content: center;
+      max-width: 1050px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .muted {
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(5, 5, 16, 0.8);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.05;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      padding: 1.75rem;
+      border-radius: 1.5rem;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px -30px rgba(126, 209, 255, 0.45);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #050510;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      header, footer {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      header nav a {
+        margin-left: 0;
+      }
+
+      header nav {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">Quantum Signals</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Models</a>
+      <a href="#lab">Lab</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div id="about">
+      <p class="badge">AI Researcher & Data Storyteller</p>
+      <h1>Designing intelligence for the next wave of human-machine collaboration.</h1>
+      <p class="muted">I fuse interpretability, signal design, and human-in-the-loop training to craft resilient AI systems that stay aligned in uncertain environments.</p>
+      <button class="cta">Download Neural Resume</button>
+    </div>
+
+    <section id="projects" class="grid">
+      <article class="card">
+        <h3>Neural Cartography</h3>
+        <p>Mapping emergent behaviors across 12B parameter foundation models with dimensionality reduction and causal tracing pipelines.</p>
+      </article>
+      <article class="card">
+        <h3>Edge Autonomy</h3>
+        <p>Deploying federated reinforcement learning agents on low-power robotics swarms for adaptive environmental sensing.</p>
+      </article>
+      <article class="card">
+        <h3>Data Rituals</h3>
+        <p>Designing generative data rituals that transform raw telemetry into immersive, explainable narratives.</p>
+      </article>
+    </section>
+
+    <section id="lab" class="card">
+      <h3>Research Lab</h3>
+      <p>Building an open-source interpretability toolkit with latent graph explorers, counterfactual probes, and real-time safety monitors.</p>
+      <p class="muted">Subscribe to the lab notebook to receive drops of prototype visualizers, micro-demos, and exploratory datasets.</p>
+    </section>
+  </main>
+
+  <footer id="contact">Open for collaborations in signal intelligence · hello@quantumsignals.ai</footer>
+</body>
+</html>
