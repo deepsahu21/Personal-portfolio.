@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deep Sahu · Aurora Field Notes</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --page-bg: radial-gradient(circle at 12% -10%, rgba(142, 246, 255, 0.24), transparent 55%),
+                 radial-gradient(circle at 88% 0%, rgba(255, 197, 122, 0.22), transparent 52%),
+                 linear-gradient(160deg, #051226, #081e2d 45%, #02131f);
+      --glass: rgba(9, 23, 40, 0.75);
+      --glass-strong: rgba(9, 23, 40, 0.92);
+      --border: rgba(142, 246, 255, 0.18);
+      --border-strong: rgba(142, 246, 255, 0.35);
+      --accent: #8ef6ff;
+      --accent-soft: rgba(142, 246, 255, 0.2);
+      --accent-secondary: #ffb36f;
+      --text-strong: #f3fbff;
+      --text-soft: rgba(222, 243, 255, 0.78);
+      --muted: rgba(191, 221, 235, 0.6);
+      --shadow: 0 32px 80px -40px rgba(0, 0, 0, 0.45);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --transition: 250ms ease;
+      --grid-gap: clamp(1.2rem, 3vw, 2rem);
+      background: var(--page-bg);
+      color: var(--text-strong);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--page-bg);
+      color: var(--text-strong);
+      display: flex;
+      justify-content: center;
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .layout {
+      width: min(1160px, 100%);
+      display: grid;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      grid-auto-flow: row;
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .layout > * {
+      width: 100%;
+    }
+
+    aside {
+      position: relative;
+      display: grid;
+      gap: 1.6rem;
+      background: var(--glass-strong);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.8rem, 4vw, 2.4rem);
+      box-shadow: var(--shadow);
+      align-content: start;
+      backdrop-filter: blur(26px);
+    }
+
+    .aura {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(142, 246, 255, 0.08), transparent 55%),
+                  linear-gradient(70deg, rgba(255, 179, 111, 0.12), transparent 65%);
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .identity {
+      position: relative;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .glyph {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba(142, 246, 255, 0.16);
+      border: 1px solid var(--border-strong);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .role {
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .tagline {
+      position: relative;
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .contact-grid {
+      position: relative;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .contact-grid div {
+      display: grid;
+      gap: 0.24rem;
+    }
+
+    dt {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--muted);
+    }
+
+    dd {
+      margin: 0;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .metrics {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .metric {
+      border: 1px solid rgba(142, 246, 255, 0.2);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.2rem;
+      display: grid;
+      gap: 0.25rem;
+      background: rgba(12, 34, 48, 0.65);
+    }
+
+    .metric span {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .metric p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .availability {
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.3rem;
+      background: rgba(142, 246, 255, 0.12);
+      border: 1px solid rgba(142, 246, 255, 0.22);
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .availability span {
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .availability p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .resume-link {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(142, 246, 255, 0.22);
+      background: rgba(12, 32, 44, 0.6);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      transition: background var(--transition), transform var(--transition), color var(--transition);
+    }
+
+    .resume-link::after {
+      content: "↗";
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .resume-link:hover {
+      background: rgba(142, 246, 255, 0.16);
+      color: var(--text-strong);
+      transform: translateY(-1px);
+    }
+
+    main {
+      display: grid;
+      gap: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      gap: clamp(1.4rem, 3vw, 2rem);
+      padding: clamp(1.8rem, 3.5vw, 2.6rem);
+      border-radius: var(--radius-lg);
+      background: var(--glass);
+      border: 1px solid rgba(142, 246, 255, 0.18);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 25% 0%, rgba(142, 246, 255, 0.12), transparent 55%),
+                  radial-gradient(circle at 82% 0%, rgba(255, 179, 111, 0.18), transparent 58%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      display: grid;
+      gap: 1.2rem;
+      max-width: 72ch;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(142, 246, 255, 0.78);
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-soft);
+    }
+
+    .focus-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--grid-gap);
+    }
+
+    .focus-card {
+      position: relative;
+      border: 1px solid rgba(142, 246, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.6rem;
+      background: rgba(10, 28, 40, 0.68);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .focus-card h3 {
+      margin: 0;
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(142, 246, 255, 0.9);
+    }
+
+    .focus-card p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .tab-suite {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .tab-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .tab-controls button {
+      appearance: none;
+      border: 1px solid rgba(142, 246, 255, 0.22);
+      border-radius: 999px;
+      padding: 0.65rem 1.2rem;
+      background: rgba(9, 26, 40, 0.65);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition), border-color var(--transition);
+    }
+
+    .tab-controls button[aria-selected="true"] {
+      background: rgba(142, 246, 255, 0.16);
+      color: var(--text-strong);
+      border-color: rgba(142, 246, 255, 0.38);
+      box-shadow: 0 16px 34px -26px rgba(142, 246, 255, 0.6);
+    }
+
+    .tab-controls button:hover {
+      transform: translateY(-1px);
+    }
+
+    .panels {
+      position: relative;
+    }
+
+    .panel {
+      display: none;
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: clamp(1.8rem, 4vw, 2.6rem);
+      background: var(--glass);
+      border: 1px solid rgba(142, 246, 255, 0.16);
+      box-shadow: var(--shadow);
+      animation: fade-in 280ms ease;
+    }
+
+    .panel[aria-hidden="false"] {
+      display: grid;
+      gap: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    h3.section-title {
+      margin: 0;
+      font-size: 0.9rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(142, 246, 255, 0.8);
+    }
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .pill {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(142, 246, 255, 0.18);
+      background: rgba(12, 30, 44, 0.6);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--text-soft);
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 1.8rem;
+      padding-left: 1.4rem;
+      border-left: 1px dashed rgba(142, 246, 255, 0.28);
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding-left: 1rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: -1.9rem;
+      top: 0.3rem;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(142, 246, 255, 0.16);
+    }
+
+    .timeline-entry h4 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    .timeline-entry .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-entry ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.55rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--grid-gap);
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(142, 246, 255, 0.16);
+      background: rgba(10, 26, 40, 0.7);
+      padding: 1.6rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .card h4 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: -0.005em;
+    }
+
+    .card .meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.5rem;
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .dual-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--grid-gap);
+    }
+
+    .callout {
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.6rem;
+      border: 1px solid rgba(142, 246, 255, 0.2);
+      background: rgba(14, 34, 50, 0.72);
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .callout strong {
+      font-size: 0.85rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(142, 246, 255, 0.82);
+    }
+
+    .callout p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .cta-row a {
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(142, 246, 255, 0.22);
+      background: rgba(12, 32, 44, 0.6);
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .cta-row a.primary {
+      background: rgba(142, 246, 255, 0.18);
+      border-color: rgba(142, 246, 255, 0.38);
+      color: var(--text-strong);
+      box-shadow: 0 18px 40px -28px rgba(142, 246, 255, 0.7);
+    }
+
+    .cta-row a:hover {
+      transform: translateY(-1px);
+      color: var(--text-strong);
+    }
+
+    footer {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(142, 246, 255, 0.55);
+      padding-top: 0.6rem;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: sticky;
+        top: 1.5rem;
+        z-index: 5;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .tab-controls {
+        gap: 0.5rem;
+      }
+
+      .tab-controls button {
+        font-size: 0.68rem;
+        letter-spacing: 0.16em;
+        padding: 0.55rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="aura" aria-hidden="true"></div>
+      <div class="identity">
+        <div class="glyph">DS</div>
+        <h1>Deep Sahu</h1>
+        <p class="role">Machine Learning Engineer · Data Scientist · SWE</p>
+        <p class="tagline">Edge-focused AI leader translating city-scale data into resilient platforms that keep communities responsive, safe, and equitable.</p>
+      </div>
+
+      <dl class="contact-grid">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:deep.sahu2105@gmail.com">deep.sahu2105@gmail.com</a></dd>
+        </div>
+        <div>
+          <dt>Portfolio</dt>
+          <dd><a href="https://deepsahu.com" rel="noopener">deepsahu.com</a></dd>
+        </div>
+        <div>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/deepsahu1" rel="noopener">github.com/deepsahu1</a></dd>
+        </div>
+        <div>
+          <dt>LinkedIn</dt>
+          <dd><a href="https://linkedin.com/in/deepsahu1" rel="noopener">linkedin.com/in/deepsahu1</a></dd>
+        </div>
+        <div>
+          <dt>Location</dt>
+          <dd>Athens, Georgia</dd>
+        </div>
+      </dl>
+
+      <div class="metrics">
+        <div class="metric">
+          <span>1.4M+</span>
+          <p>Residents impacted by civic analytics platforms I engineered.</p>
+        </div>
+        <div class="metric">
+          <span>400M</span>
+          <p>Traffic events modeled to protect infrastructure across 130 intersections.</p>
+        </div>
+        <div class="metric">
+          <span>9 teammates</span>
+          <p>Led across ML, product, and civic partner pods with on-time quarterly releases.</p>
+        </div>
+      </div>
+
+      <div class="availability">
+        <span>Actively exploring</span>
+        <p>2025 Machine Learning Engineer, Applied Scientist, or Data/ML SWE internships and new-grad roles blending research with production delivery.</p>
+      </div>
+
+      <a class="resume-link" href="#contact">Request Full Resume</a>
+
+      <footer>
+        <span>Aurora Field Notes · Crafted for FAANG-caliber review</span>
+        <span>Last updated: 2025</span>
+      </footer>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Mission Statement</p>
+          <h2>Designing intelligent infrastructure that pairs edge AI with human-centered delivery.</h2>
+          <p>
+            I specialize in building full-stack machine learning systems that turn streaming sensor data, computer vision, and geospatial intelligence into fast decisions for cities and health networks. From predictive maintenance across Atlanta's transportation grid to anomaly detection for rural water treatment, I orchestrate product strategy, research rigor, and production deployment to deliver measurable impact.
+          </p>
+          <div class="focus-grid">
+            <div class="focus-card">
+              <h3>Integrated AI Ops</h3>
+              <p>Architected hybrid analytics platforms that fuse real-time video, IoT telemetry, and simulation outputs to surface proactive insights for civic leaders.</p>
+            </div>
+            <div class="focus-card">
+              <h3>Human-Centered Delivery</h3>
+              <p>Pair technical leadership with stakeholder storytelling—executive dashboards, explainable AI, and quarterly roadmaps that keep 9-person teams aligned.</p>
+            </div>
+            <div class="focus-card">
+              <h3>Responsible Scale</h3>
+              <p>Blend modern ML (PyTorch, LangChain, Azure, Terraform) with governance and resilience so critical infrastructure remains safe, equitable, and auditable.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="tab-suite">
+        <div class="tab-controls" role="tablist" aria-label="Portfolio Sections">
+          <button id="tab-mission" type="button" role="tab" aria-selected="true" aria-controls="mission-panel" data-panel="mission-panel" tabindex="0">Mission Control</button>
+          <button id="tab-experience" type="button" role="tab" aria-selected="false" aria-controls="experience-panel" data-panel="experience-panel" tabindex="-1">Experience</button>
+          <button id="tab-projects" type="button" role="tab" aria-selected="false" aria-controls="projects-panel" data-panel="projects-panel" tabindex="-1">Projects</button>
+          <button id="tab-research" type="button" role="tab" aria-selected="false" aria-controls="research-panel" data-panel="research-panel" tabindex="-1">Research & Impact</button>
+          <button id="tab-leadership" type="button" role="tab" aria-selected="false" aria-controls="leadership-panel" data-panel="leadership-panel" tabindex="-1">Leadership & Beyond</button>
+        </div>
+
+        <div class="panels">
+          <article id="mission-panel" class="panel" role="tabpanel" aria-hidden="false" aria-labelledby="tab-mission">
+            <div>
+              <h3 class="section-title">Core Disciplines</h3>
+              <div class="pill-grid">
+                <span class="pill">Computer Vision</span>
+                <span class="pill">Predictive Analytics</span>
+                <span class="pill">Edge-to-Cloud ML</span>
+                <span class="pill">Time Series Forecasting</span>
+                <span class="pill">Geospatial Intelligence</span>
+                <span class="pill">MLOps &amp; Platform</span>
+                <span class="pill">Product Strategy</span>
+                <span class="pill">Cross-Functional Leadership</span>
+              </div>
+            </div>
+
+            <div class="dual-columns">
+              <div class="callout">
+                <strong>Technical Stack</strong>
+                <p>Python, SQL, R, JavaScript, HTML/CSS, Java · TensorFlow, PyTorch, spaCy, Pandas, NumPy, scikit-learn, PySparkQL · LangChain, LLM orchestration, dbt, Azure, AWS/GCP, Docker, Kubernetes, Terraform, Git, Jenkins, Tableau.</p>
+              </div>
+              <div class="callout">
+                <strong>Education</strong>
+                <p>University of Georgia — B.S. Data Science (May 2027). Coursework: Data Science I, Software Development, Applied Regression, Programming &amp; Data Literacy in R, Linear Algebra, Multivariate Calculus.</p>
+              </div>
+            </div>
+
+            <div class="dual-columns">
+              <div class="callout">
+                <strong>Operating Principles</strong>
+                <p>Work backwards from citizen outcomes, ship reliable increments, and articulate model behavior for every stakeholder—from municipal executives to on-call engineers.</p>
+              </div>
+              <div class="callout">
+                <strong>Opportunity Radar</strong>
+                <p>Seeking teams where computer vision, generative AI, or data infrastructure bridge research breakthroughs with large-scale product adoption.</p>
+              </div>
+            </div>
+          </article>
+
+          <article id="experience-panel" class="panel" role="tabpanel" aria-hidden="true" aria-labelledby="tab-experience">
+            <div>
+              <h3 class="section-title">Experience Timeline</h3>
+              <div class="timeline">
+                <div class="timeline-entry">
+                  <h4>Lead Machine Learning Engineer · EdgeVision</h4>
+                  <div class="meta">
+                    <span>May 2023 – Present</span>
+                    <span>Athens, GA</span>
+                  </div>
+                  <ul>
+                    <li>Built an intelligent video safety &amp; traffic platform for the City of Atlanta, reducing emergency response times by 22%.</li>
+                    <li>Launched a hybrid analytics layer that merges real-time sensor feeds with simulation outputs to support decisions for 1.4M residents.</li>
+                    <li>Directed predictive maintenance on 400M+ traffic events to prevent failures across 130 intersections.</li>
+                    <li>Scaled and led a cross-functional team of nine, coordinating designers, engineers, and civic partners to hit every quarterly release.</li>
+                  </ul>
+                </div>
+
+                <div class="timeline-entry">
+                  <h4>Undergraduate Research Assistant · UGA Institute for AI</h4>
+                  <div class="meta">
+                    <span>Aug 2024 – Present</span>
+                    <span>Athens, GA</span>
+                  </div>
+                  <ul>
+                    <li>Deliver predictive analytics for the Athens-Clarke County Water Treatment system, fusing SCADA sensors, GIS data, and ML forecasts.</li>
+                    <li>Publish monthly executive dashboards that align city leadership on demand planning and anomaly response.</li>
+                    <li>Co-design emergency response pipelines with faculty and DoD partners to prioritize rural infrastructure resilience.</li>
+                  </ul>
+                </div>
+
+                <div class="timeline-entry">
+                  <h4>Product Development Intern · Ridgeway</h4>
+                  <div class="meta">
+                    <span>Jan 2024 – May 2024</span>
+                    <span>Athens, GA</span>
+                  </div>
+                  <ul>
+                    <li>Automated a computer vision hyperparameter tuning pipeline in Python, cutting manual experimentation by 45%.</li>
+                    <li>Delivered an interactive vegetation-overgrowth overlay for satellite imagery to drive proactive maintenance.</li>
+                    <li>Productionized inference workflows in Azure Kubernetes Service with Terraform-managed infrastructure alongside SWE partners.</li>
+                  </ul>
+                </div>
+
+                <div class="timeline-entry">
+                  <h4>Research Intern · EdgeVision</h4>
+                  <div class="meta">
+                    <span>May 2023 – Aug 2023</span>
+                    <span>Athens, GA</span>
+                  </div>
+                  <ul>
+                    <li>Developed a Raspberry Pi–powered vision system for municipal water treatment, flagging anomalies in chemical monitoring.</li>
+                    <li>Built a cloud-native analytics library that saves the operations team 12 hours per monthly reporting cycle.</li>
+                    <li>Created AR/VR drone simulations to demonstrate remote inspection capabilities to municipal stakeholders.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="projects-panel" class="panel" role="tabpanel" aria-hidden="true" aria-labelledby="tab-projects">
+            <div>
+              <h3 class="section-title">Flagship Builds</h3>
+              <div class="card-grid">
+                <div class="card">
+                  <h4>VisionEdge City Insight Platform</h4>
+                  <div class="meta">Python · OpenCV · PyTorch · AWS · 2023 – 2024</div>
+                  <ul>
+                    <li>Engineered an edge-to-cloud CV platform for real-time infrastructure monitoring with digital twin overlays for Atlanta.</li>
+                    <li>Delivered 40+ KPI dashboards and streaming alerts adopted across 15 municipal departments.</li>
+                    <li>Implemented resilient failover, ensuring zero data loss across 200+ smart intersections.</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <h4>Smart Health Monitoring Pipeline</h4>
+                  <div class="meta">Python · Azure · dbt · Terraform · 2024 – Present</div>
+                  <ul>
+                    <li>Built modular ETL for patient telemetry and EHR data, reducing manual chart review by 32% at UGA Health Center.</li>
+                    <li>Launched anomaly detection with explainable SHAP features and routed alerts into Teams &amp; Slack workflows.</li>
+                    <li>Hardened infrastructure with Terraform + Azure DevOps to support secure scale-out.</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <h4>Adaptive Robotics Swarm Intelligence</h4>
+                  <div class="meta">ROS2 · Python · C++ · 2023 – 2024</div>
+                  <ul>
+                    <li>Led a five-person research team building reinforcement learning policies for swarm robotics.</li>
+                    <li>Achieved an 87% task success rate in unstructured environments via on-device policy adaptation.</li>
+                    <li>Developed Gazebo-based visualization with live metrics for commanders and operators.</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <h4>EdgeVision Edge Detection Platform</h4>
+                  <div class="meta">Python · OpenCV · PyTorch · LLM Ops · 2023 – 2025</div>
+                  <ul>
+                    <li>Prototyped multimodal detection pipelines combining LLM-based prompt orchestration with computer vision.</li>
+                    <li>Accelerated municipal asset tracking with multi-camera sensor fusion and contextual scene understanding.</li>
+                    <li>Packaged reusable tooling for internal teams, shortening experiment-to-deployment cycles by two sprints.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="research-panel" class="panel" role="tabpanel" aria-hidden="true" aria-labelledby="tab-research">
+            <div class="dual-columns">
+              <div class="callout">
+                <strong>Applied Research</strong>
+                <p>Investigating resilient infrastructure analytics at the UGA Institute for AI—bridging academic rigor with municipal operations. Current focus: predictive demand planning for rural water systems and simulation-informed emergency response.</p>
+              </div>
+              <div class="callout">
+                <strong>Data Storytelling</strong>
+                <p>Trusted to brief civic leadership with monthly executive dashboards, scenario planning, and responsible AI narratives grounded in reproducible evidence.</p>
+              </div>
+            </div>
+
+            <div class="dual-columns">
+              <div class="callout">
+                <strong>Public Sector Impact</strong>
+                <p>Partnered with the City of Atlanta and Athens-Clarke County to operationalize AI solutions that balance privacy, transparency, and measurable ROI.</p>
+              </div>
+              <div class="callout">
+                <strong>Future Directions</strong>
+                <p>Exploring multi-agent coordination, geospatial generative models, and AI safety frameworks that translate to enterprise and FAANG-scale platforms.</p>
+              </div>
+            </div>
+          </article>
+
+          <article id="leadership-panel" class="panel" role="tabpanel" aria-hidden="true" aria-labelledby="tab-leadership">
+            <div class="dual-columns">
+              <div class="callout">
+                <strong>Beta Chi Theta · Fraternity</strong>
+                <p>Spearheading Southeastern expansion strategy, coordinating philanthropy, and mentoring new members on cultural programming and leadership pipelines.</p>
+              </div>
+              <div class="callout">
+                <strong>UGA Kalakriti · South Asian A Cappella</strong>
+                <p>Arrange contemporary &amp; classical fusion sets, manage rehearsal analytics, and prep vocalists for national circuit performances.</p>
+              </div>
+            </div>
+
+            <div class="dual-columns">
+              <div class="callout">
+                <strong>Georgia Redcoat Marching Band</strong>
+                <p>Tenor saxophonist delivering high-tempo halftime productions and community outreach concerts across the SEC.</p>
+              </div>
+              <div class="callout">
+                <strong>Varsity Wrestler &amp; Performer</strong>
+                <p>Discipline forged through years on the mat and stage—bringing composure, creativity, and endurance to high-stakes project delivery.</p>
+              </div>
+            </div>
+
+            <div class="cta-row" id="contact">
+              <a class="primary" href="mailto:deep.sahu2105@gmail.com">Let's collaborate</a>
+              <a href="https://linkedin.com/in/deepsahu1" rel="noopener">Connect on LinkedIn</a>
+              <a href="https://github.com/deepsahu1" rel="noopener">Explore GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll('.tab-controls button'));
+    const panels = Array.from(document.querySelectorAll('.panel'));
+
+    const activateTab = (tab) => {
+      const targetId = tab.getAttribute('data-panel');
+
+      tabs.forEach((btn) => {
+        const isActive = btn === tab;
+        btn.setAttribute('aria-selected', isActive);
+        btn.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+
+      panels.forEach((panel) => {
+        const isTarget = panel.id === targetId;
+        panel.setAttribute('aria-hidden', !isTarget);
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => activateTab(tab));
+
+      tab.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+          return;
+        }
+
+        const currentIndex = tabs.indexOf(tab);
+        const offset = event.key === 'ArrowRight' ? 1 : -1;
+        const nextIndex = (currentIndex + offset + tabs.length) % tabs.length;
+        const nextTab = tabs[nextIndex];
+
+        nextTab.focus();
+        activateTab(nextTab);
+        event.preventDefault();
+      });
+    });
+  </script>
+</body>
+</html>
