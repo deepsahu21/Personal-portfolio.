@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" data-color-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI & Data Science Portfolio Capsules</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      --bg: radial-gradient(circle at 10% -10%, rgba(125, 208, 255, 0.25), transparent 55%),
+             radial-gradient(circle at 90% 0%, rgba(255, 132, 242, 0.25), transparent 50%),
+             #050510;
+      --surface: rgba(13, 18, 40, 0.7);
+      --accent: #7dd0ff;
+      --accent-soft: rgba(125, 208, 255, 0.18);
+      --muted: rgba(255, 255, 255, 0.68);
+      --text-strong: #f8fbff;
+      --text-soft: rgba(255, 255, 255, 0.8);
+      --grid-gap: clamp(1.5rem, 3vw, 3rem);
+      --panel-radius: 28px;
+      --transition: 260ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-strong);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(2rem, 4vw, 3.5rem);
+      padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 6vw, 4rem) 4rem;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0;
+      padding-block: 0.5rem;
+      backdrop-filter: blur(28px);
+      z-index: 5;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(3, 6, 18, 0.4);
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav button {
+      appearance: none;
+      border: 1px solid transparent;
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      transition: transform var(--transition), border var(--transition), color var(--transition), background var(--transition);
+      cursor: pointer;
+    }
+
+    nav button:hover {
+      transform: translateY(-1px);
+      color: var(--text-strong);
+    }
+
+    nav button[aria-pressed="true"] {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--accent);
+      color: var(--text-strong);
+      box-shadow: 0 12px 38px -22px var(--accent);
+    }
+
+    main {
+      display: grid;
+      gap: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .capsule {
+      display: none;
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--panel-radius);
+      padding: clamp(2rem, 5vw, 3.25rem);
+      box-shadow: 0 32px 68px -38px rgba(10, 20, 60, 0.55);
+      backdrop-filter: blur(40px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+
+    .capsule[aria-hidden="false"] {
+      display: grid;
+      gap: clamp(2rem, 5vw, 3.5rem);
+      animation: fade-in 420ms ease both;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 70ch;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .muted {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--grid-gap);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card {
+      padding: 1.5rem;
+      border-radius: 22px;
+      background: rgba(7, 12, 28, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: grid;
+      gap: 0.9rem;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .list li {
+      list-style: none;
+      display: grid;
+      gap: 0.3rem;
+      padding: 1rem 1.25rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .list span {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    footer {
+      display: grid;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-top: auto;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Theme tokens */
+    body[data-theme="quantum"] {
+      --bg: radial-gradient(circle at 20% 20%, rgba(109, 174, 255, 0.18), transparent 45%),
+             radial-gradient(circle at 75% -20%, rgba(255, 117, 208, 0.24), transparent 55%),
+             #050510;
+      --surface: rgba(8, 10, 26, 0.8);
+      --accent: #7dd0ff;
+      --accent-soft: rgba(125, 208, 255, 0.25);
+      --muted: rgba(204, 222, 255, 0.68);
+      --text-strong: #f6fbff;
+    }
+
+    body[data-theme="holograph"] {
+      --bg: radial-gradient(circle at 15% -15%, rgba(255, 255, 255, 0.65), transparent 55%),
+             linear-gradient(145deg, rgba(154, 220, 255, 0.7), rgba(247, 247, 255, 0.55));
+      --surface: rgba(255, 255, 255, 0.75);
+      --accent: #2f70ff;
+      --accent-soft: rgba(47, 112, 255, 0.28);
+      --muted: rgba(20, 30, 60, 0.55);
+      --text-strong: #0e1630;
+    }
+
+    body[data-theme="holograph"] .card,
+    body[data-theme="holograph"] .list li {
+      background: rgba(255, 255, 255, 0.82);
+      border-color: rgba(47, 112, 255, 0.16);
+      box-shadow: 0 20px 34px -24px rgba(47, 112, 255, 0.55);
+    }
+
+    body[data-theme="aurora"] {
+      --bg: linear-gradient(160deg, rgba(10, 18, 42, 0.92), rgba(33, 57, 75, 0.95)),
+             radial-gradient(circle at 80% 0%, rgba(144, 255, 247, 0.22), transparent 60%),
+             radial-gradient(circle at 0% 50%, rgba(255, 195, 112, 0.18), transparent 55%),
+             #040611;
+      --surface: rgba(10, 20, 32, 0.75);
+      --accent: #8ef6ff;
+      --accent-soft: rgba(142, 246, 255, 0.26);
+      --muted: rgba(214, 240, 255, 0.7);
+      --text-strong: #f2fbff;
+    }
+
+    body[data-theme="aurora"] .timeline {
+      border-left: 1px dashed rgba(142, 246, 255, 0.35);
+      padding-left: 1.5rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    body[data-theme="aurora"] .timeline-entry {
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    body[data-theme="aurora"] .timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: -1.88rem;
+      top: 0.4rem;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(142, 246, 255, 0.12);
+    }
+
+    .mono {
+      font-family: "Space Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 1.5rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .capsule {
+        padding: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body data-theme="quantum">
+  <header>
+    <div class="badge">Singularity Studio · Capsules</div>
+    <nav aria-label="Portfolio themes">
+      <button type="button" data-theme-target="quantum" aria-pressed="true">Quantum Signals</button>
+      <button type="button" data-theme-target="holograph" aria-pressed="false">Holograph Labs</button>
+      <button type="button" data-theme-target="aurora" aria-pressed="false">Aurora Field Notes</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="capsule" data-theme="quantum" aria-hidden="false">
+      <div class="hero">
+        <h2>Quantum Signals</h2>
+        <h1>Engineering adaptive intelligence from shimmering data streams.</h1>
+        <p class="muted">An experimentation space for multi-modal reasoning systems, spectral signal decoding, and post-quantum inference pipelines. Each release is monitored by an autonomous observatory that keeps every loop explainable.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Photon Conduits</h3>
+          <p class="muted">Hybrid GPU/TPU orchestration fabric that modulates workloads based on live telemetry and thermal thresholds.</p>
+          <span class="mono">Autoscaling · 0.7ms latency budget</span>
+        </article>
+        <article class="card">
+          <h3>Specular Bench</h3>
+          <p class="muted">Benchmarking stack to stress-test foundation models under adversarial spectroscopy and multi-agent critique.</p>
+          <span class="mono">Releases: v4.2 &middot; RLHF ready</span>
+        </article>
+        <article class="card">
+          <h3>Interpretability Lab</h3>
+          <p class="muted">Wavefunction tracing toolkit that projects intermediate activations onto human-auditable manifolds.</p>
+          <span class="mono">Visual cortex overlays</span>
+        </article>
+      </div>
+      <ul class="list" aria-label="Quantum Signals quick facts">
+        <li>
+          <span>Signal Studio</span>
+          <strong>Real-time instrumentation across 18 observatories</strong>
+        </li>
+        <li>
+          <span>Collabs</span>
+          <strong>Partnerships with CERN &amp; Atlas One Labs</strong>
+        </li>
+        <li>
+          <span>Stack</span>
+          <strong>Rust · CUDA · JAX · Modal compute mesh</strong>
+        </li>
+      </ul>
+    </section>
+
+    <section class="capsule" data-theme="holograph" aria-hidden="true">
+      <div class="hero">
+        <h2>Holograph Labs</h2>
+        <h1>A luminous hub for responsible model deployment and telemetry.</h1>
+        <p class="muted">The lab orchestrates calm, high-bandwidth interfaces for showcasing production-grade ML workflows. Each panel surfaces the decision trail, compliance checkpoints, and observability hooks without overwhelming the signal.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Model Deck</h3>
+          <p class="muted">Snapshots of diffusion, transformer, and graph pipelines, staged with reproducible seeds and evaluation cards.</p>
+          <span class="mono">15 curated demos</span>
+        </article>
+        <article class="card">
+          <h3>Ethics Pulse</h3>
+          <p class="muted">Live responsibility dashboard with fairness deltas, red-team annotations, and mitigation receipts.</p>
+          <span class="mono">ISO 42001 aligned</span>
+        </article>
+        <article class="card">
+          <h3>Collaboration Conduit</h3>
+          <p class="muted">Integrated workspace for async lab tours, annotated notebooks, and instant sandbox provisioning.</p>
+          <span class="mono">SAML / SOC2 ready</span>
+        </article>
+      </div>
+      <ul class="list" aria-label="Holograph Labs focus areas">
+        <li>
+          <span>Launch cadence</span>
+          <strong>Weekly release windows with auto backtesting</strong>
+        </li>
+        <li>
+          <span>Observability</span>
+          <strong>Holovideo streams + structured logging</strong>
+        </li>
+        <li>
+          <span>Integrations</span>
+          <strong>Weights &amp; Biases, Neptune, bespoke ML Ops</strong>
+        </li>
+      </ul>
+    </section>
+
+    <section class="capsule" data-theme="aurora" aria-hidden="true">
+      <div class="hero">
+        <h2>Aurora Field Notes</h2>
+        <h1>Mapping earthly impact through data storytelling and auroral palettes.</h1>
+        <p class="muted">A chronicle of planetary intelligence work: climate resilience models, bioacoustic observatories, and civic data rituals. Subtle gradients adapt to your local time, keeping focus on the narrative signal.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Climate Cohorts</h3>
+          <p class="muted">Regional adaptation experiments stitched from satellite feeds, community sensors, and hydrology simulators.</p>
+          <span class="mono">12 living datasets</span>
+        </article>
+        <article class="card">
+          <h3>Sounding Atlas</h3>
+          <p class="muted">Bioacoustic embeddings translating endangered species calls into actionable conservation alerts.</p>
+          <span class="mono">Streaming inference</span>
+        </article>
+        <article class="card">
+          <h3>Public Signals</h3>
+          <p class="muted">Civic dashboards that keep procurement, policy, and research loops transparent and equitable.</p>
+          <span class="mono">Open source by default</span>
+        </article>
+      </div>
+      <div class="timeline" aria-label="Aurora Field Notes timeline">
+        <div class="timeline-entry">
+          <span class="mono">2024 · Arctic Mesh</span>
+          <p class="muted">Launched sensor fusion mesh to forecast permafrost melt with 98% lead accuracy.</p>
+        </div>
+        <div class="timeline-entry">
+          <span class="mono">2023 · Mangrove Chorus</span>
+          <p class="muted">Co-created with coastal stewards to monitor biodiversity rebound in real time.</p>
+        </div>
+        <div class="timeline-entry">
+          <span class="mono">2022 · Civic Spectrum</span>
+          <p class="muted">Open-governance dataset that keeps infrastructure funding accountable to frontline communities.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Switch themes above to preview each capsule in-place.</span>
+    <span>Built for minimal setup: serve this directory with any static server.</span>
+  </footer>
+
+  <script>
+    const themeButtons = document.querySelectorAll('[data-theme-target]');
+    const capsules = document.querySelectorAll('.capsule');
+    const body = document.body;
+
+    themeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const theme = button.getAttribute('data-theme-target');
+        if (!theme || body.dataset.theme === theme) return;
+
+        body.setAttribute('data-theme', theme);
+
+        themeButtons.forEach((btn) => {
+          const pressed = btn === button;
+          btn.setAttribute('aria-pressed', pressed);
+        });
+
+        capsules.forEach((capsule) => {
+          const isActive = capsule.getAttribute('data-theme') === theme;
+          capsule.setAttribute('aria-hidden', (!isActive).toString());
+        });
+      });
+    });
+  </script>
+</body>
+</html>
