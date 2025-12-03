@@ -142,6 +142,26 @@
         .progress-bar {
             animation: progressAnimation 2s ease-out forwards;
         }
+        /* ... your existing styles ... */
+
+        /* Neon scrollbar just for the skills panel */
+        .skills-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .skills-scroll::-webkit-scrollbar-track {
+            background: #080b16;
+            border-radius: 9999px;
+        }
+
+        .skills-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #00aaff, #aa00ff); /* blue → purple */
+            border-radius: 9999px;
+        }
+
+        .skills-scroll::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #33bbff, #bb33ff);
+        }
     </style>
 </head>
 <body class="bg-dark-bg text-gray-200 aurora-bg">
@@ -239,16 +259,16 @@
                             <div class="text-sm text-gray-400">Projects Completed</div>
                         </div>
                         <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
-                            <div class="text-3xl font-bold text-aurora-blue">50+</div>
-                            <div class="text-sm text-gray-400">Happy Clients</div>
+                            <div class="text-3xl font-bold text-aurora-blue">200+</div>
+                            <div class="text-sm text-gray-400">Github Contributions</div>
                         </div>
                         <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
                             <div class="text-3xl font-bold text-aurora-purple">2+</div>
                             <div class="text-sm text-gray-400">Years Experience</div>
                         </div>
                         <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
-                            <div class="text-3xl font-bold text-aurora-pink">15+</div>
-                            <div class="text-sm text-gray-400">Awards Won</div>
+                            <div class="text-3xl font-bold text-aurora-pink">∞</div>
+                            <div class="text-sm text-gray-400">Coffees drank</div>
                         </div>
                     </div>
                 </div>
@@ -338,104 +358,247 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Technical Skills</h2>
-            <div class="max-w-4xl mx-auto space-y-8">
-                <!-- Frontend Skills -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-4 text-aurora-green">Frontend Development</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span>React / Next.js</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="w-full bg-dark-card rounded-full h-2">
-                                <div class="bg-gradient-to-r from-aurora-green to-aurora-blue h-2 rounded-full progress-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span>TypeScript</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="w-full bg-dark-card rounded-full h-2">
-                                <div class="bg-gradient-to-r from-aurora-blue to-aurora-purple h-2 rounded-full progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span>Tailwind CSS</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="w-full bg-dark-card rounded-full h-2">
-                                <div class="bg-gradient-to-r from-aurora-purple to-aurora-pink h-2 rounded-full progress-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Technical Skills</h2>
+
+        <div class="max-w-6xl mx-auto space-y-12">
+
+            <!-- SKILL CARD -->
+            <div class="bg-dark-card/40 rounded-xl p-6 md:p-10 border border-dark-border grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- LEFT TABS -->
+                <div class="space-y-4 md:border-r md:pr-6 border-dark-border">
+
+                    <button class="skill-tab active-tab w-full text-left px-4 py-3 rounded-lg bg-dark-card border border-aurora-blue text-aurora-blue font-semibold transition"
+                        data-target="tab-lang">
+                        Programming Languages
+                    </button>
+
+                    <button class="skill-tab w-full text-left px-4 py-3 rounded-lg bg-dark-card border border-dark-border text-gray-300 hover:border-aurora-green hover:text-aurora-green transition"
+                        data-target="tab-ml">
+                        Machine Learning Engineering
+                    </button>
+
+                    <button class="skill-tab w-full text-left px-4 py-3 rounded-lg bg-dark-card border border-dark-border text-gray-300 hover:border-aurora-purple hover:text-aurora-purple transition"
+                        data-target="tab-se">
+                        Software Engineering
+                    </button>
+
+                    <button class="skill-tab w-full text-left px-4 py-3 rounded-lg bg-dark-card border border-dark-border text-gray-300 hover:border-aurora-pink hover:text-aurora-pink transition"
+                        data-target="tab-data">
+                        Data & Infrastructure
+                    </button>
+
                 </div>
 
-                <!-- Backend Skills -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-4 text-aurora-blue">Backend Development</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span>Node.js / Express</span>
-                                <span>90%</span>
+                <!-- RIGHT SCROLL PANEL -->
+                <div id="skillsPanel" class="col-span-2 h-96 overflow-y-auto pr-4 skills-scroll">
+
+                    <!-- TAB 1 -->
+                    <div id="tab-lang" class="skill-content">
+                        <h3 class="text-2xl font-semibold text-aurora-blue mb-6">Programming Languages</h3>
+
+                        <div class="space-y-6">
+
+                            <div>
+                                <div class="flex justify-between"><span>Python</span><span>99%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
+                                        data-width="99"></div>
+                                </div>
                             </div>
-                            <div class="w-full bg-dark-card rounded-full h-2">
-                                <div class="bg-gradient-to-r from-aurora-green to-aurora-blue h-2 rounded-full progress-bar" style="width: 90%"></div>
+
+                            <div>
+                                <div class="flex justify-between"><span>Java</span><span>90%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-blue to-aurora-purple"
+                                        data-width="90"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span>Python / Django</span>
-                                <span>85%</span>
+
+                            <div>
+                                <div class="flex justify-between"><span>SQL</span><span>80%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-purple to-aurora-pink"
+                                        data-width="80"></div>
+                                </div>
                             </div>
-                            <div class="w-full bg-dark-card rounded-full h-2">
-                                <div class="bg-gradient-to-r from-aurora-blue to-aurora-purple h-2 rounded-full progress-bar" style="width: 85%"></div>
+
+                            <div>
+                                <div class="flex justify-between"><span>R</span><span>70%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-pink to-aurora-green"
+                                        data-width="70"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span>PostgreSQL / MongoDB</span>
-                                <span>88%</span>
-                            </div>
-                            <div class="w-full bg-dark-card rounded-full h-2">
-                                <div class="bg-gradient-to-r from-aurora-purple to-aurora-pink h-2 rounded-full progress-bar" style="width: 88%"></div>
-                            </div>
+
                         </div>
                     </div>
-                </div>
 
-                <!-- Tools & Others -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-4 text-aurora-purple">Tools & DevOps</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
-                            <i class="fab fa-docker text-2xl mb-2 text-aurora-green"></i>
-                            <p>Docker</p>
+                    <!-- TAB 2 -->
+                    <div id="tab-ml" class="skill-content hidden">
+                        <h3 class="text-2xl font-semibold text-aurora-green mb-6">Machine Learning Engineering</h3>
+
+                        <div class="space-y-6">
+
+                            <div>
+                                <div class="flex justify-between"><span>Scikit-learn</span><span>99%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>TensorFlow</span><span>95%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-blue to-aurora-purple"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>PyTorch</span><span>90%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-purple to-aurora-pink"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>XGBoost</span><span>99%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-pink to-aurora-green"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>U-Net / ResNet</span><span>3%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
-                            <i class="fab fa-aws text-2xl mb-2 text-aurora-blue"></i>
-                            <p>AWS</p>
+                    </div>
+
+                    <!-- TAB 3 -->
+                    <div id="tab-se" class="skill-content hidden">
+                        <h3 class="text-2xl font-semibold text-aurora-purple mb-6">Software Engineering</h3>
+
+                        <div class="space-y-6">
+
+                            <div>
+                                <div class="flex justify-between"><span>FastAPI</span><span>100%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>Node.js</span><span>100%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-blue to-aurora-purple"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>React</span><span>100%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-purple to-aurora-pink"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>REST APIs</span><span>100%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-pink to-aurora-green"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
-                            <i class="fab fa-git text-2xl mb-2 text-aurora-purple"></i>
-                            <p>Git</p>
+                    </div>
+
+                    <!-- TAB 4 -->
+                    <div id="tab-data" class="skill-content hidden">
+                        <h3 class="text-2xl font-semibold text-aurora-pink mb-6">Data & Infrastructure</h3>
+
+                        <div class="space-y-6">
+
+                            <div>
+                                <div class="flex justify-between"><span>PostgreSQL</span><span>100%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>Databricks</span><span>100%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-blue to-aurora-purple"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>ETL Pipelines</span><span>100%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-purple to-aurora-pink"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between"><span>Data Pipelines</span><span>100%</span></div>
+                                <div class="w-full h-2 bg-dark-card rounded-full">
+                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-pink to-aurora-green"
+                                        data-width="100"></div>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
-                            <i class="fas fa-infinity text-2xl mb-2 text-aurora-pink"></i>
-                            <p>CI/CD</p>
-                        </div>
+                    </div>
+
+                </div> 
+            </div>
+
+            <!-- TOOLS OUTSIDE CARD -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-aurora-purple">Tools & DevOps</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                        <i class="fab fa-docker text-2xl mb-2 text-aurora-green"></i>
+                        <p>Docker</p>
+                    </div>
+                    <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                        <i class="fab fa-aws text-2xl mb-2 text-aurora-blue"></i>
+                        <p>AWS</p>
+                    </div>
+                    <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                        <i class="fab fa-git text-2xl mb-2 text-aurora-purple"></i>
+                        <p>Git</p>
+                    </div>
+                    <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                        <i class="fas fa-infinity text-2xl mb-2 text-aurora-pink"></i>
+                        <p>CI/CD</p>
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+
+
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-dark-card/30">
@@ -800,5 +963,51 @@
             });
         });
     </script>
+    <script>
+// TAB SWITCHER + PROGRESS BAR ANIMATION
+const tabs = document.querySelectorAll('.skill-tab');
+const contents = document.querySelectorAll('.skill-content');
+
+function activateTab(target) {
+    // hide all content
+    contents.forEach(c => c.classList.add('hidden'));
+
+    // show selected panel
+    const panel = document.getElementById(target);
+    panel.classList.remove('hidden');
+
+    // animate progress bars
+    const bars = panel.querySelectorAll('.progress-fill');
+    bars.forEach(bar => {
+        bar.style.transition = "none";      // reset instantly
+        bar.style.width = "0%";             // start empty
+        void bar.offsetWidth;               // force reflow
+        bar.style.transition = "width 0.7s ease-out";
+        bar.style.width = bar.dataset.width + "%";  // animate to target
+    });
+}
+
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        // remove active styles
+        tabs.forEach(t => {
+            t.classList.remove("border-aurora-blue", "text-aurora-blue", "active-tab");
+            t.classList.add("border-dark-border", "text-gray-300");
+        });
+
+        // highlight active tab
+        tab.classList.add("border-aurora-blue", "text-aurora-blue", "active-tab");
+        tab.classList.remove("text-gray-300");
+
+        // switch content
+        activateTab(tab.dataset.target);
+    });
+});
+
+// load default tab
+activateTab("tab-lang");
+</script>
+
+
 </body>
 </html>
