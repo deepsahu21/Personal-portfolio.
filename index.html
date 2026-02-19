@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aurora a Freefolio template by OSSPH</title>
-    <meta name="description" content="A modern dark portfolio template inspired by the Northern Lights with comprehensive sections and smooth animations">
+    <meta name="description"
+        content="A modern dark portfolio template inspired by the Northern Lights with comprehensive sections and smooth animations">
     <meta property="og:title" content="Aurora Portfolio Template">
     <meta property="og:description" content="A Northern Lights inspired portfolio template with dark mode aesthetic">
     <meta property="og:type" content="website">
@@ -136,13 +138,14 @@
 
         /* Progress bar animation */
         @keyframes progressAnimation {
-            0% { width: 0%; }
+            0% {
+                width: 0%;
+            }
         }
 
         .progress-bar {
             animation: progressAnimation 2s ease-out forwards;
         }
-        /* ... your existing styles ... */
 
         /* Neon scrollbar just for the skills panel */
         .skills-scroll::-webkit-scrollbar {
@@ -155,7 +158,7 @@
         }
 
         .skills-scroll::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #00aaff, #aa00ff); /* blue → purple */
+            background: linear-gradient(to bottom, #00aaff, #aa00ff);
             border-radius: 9999px;
         }
 
@@ -164,997 +167,204 @@
         }
     </style>
 </head>
+
 <body class="bg-dark-bg text-gray-200 aurora-bg">
     <!-- Aurora overlay effect -->
     <div class="aurora-overlay"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-dark-bg/90 backdrop-blur-md border-b border-dark-border z-50">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold gradient-text">Aurora</div>
-                <ul class="hidden md:flex space-x-8">
-                    <li><a href="#home" class="hover:text-aurora-green transition">Home</a></li>
-                    <li><a href="#about" class="hover:text-aurora-green transition">About</a></li>
-                    <li><a href="#experience" class="hover:text-aurora-green transition">Experience</a></li>
-                    <li><a href="#skills" class="hover:text-aurora-green transition">Skills</a></li>
-                    <li><a href="#services" class="hover:text-aurora-green transition">Services</a></li>
-                    <li><a href="#portfolio" class="hover:text-aurora-green transition">Portfolio</a></li>
-                    <li><a href="#testimonials" class="hover:text-aurora-green transition">Testimonials</a></li>
-                    <li><a href="#blog" class="hover:text-aurora-green transition">Blog</a></li>
-                    <li><a href="#contact" class="hover:text-aurora-green transition">Contact</a></li>
-                </ul>
-                <!-- Mobile menu button -->
-                <button class="md:hidden" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            <!-- Mobile menu -->
-            <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
-                <a href="#home" class="block py-2 hover:text-aurora-green">Home</a>
-                <a href="#about" class="block py-2 hover:text-aurora-green">About</a>
-                <a href="#experience" class="block py-2 hover:text-aurora-green">Experience</a>
-                <a href="#skills" class="block py-2 hover:text-aurora-green">Skills</a>
-                <a href="#services" class="block py-2 hover:text-aurora-green">Services</a>
-                <a href="#portfolio" class="block py-2 hover:text-aurora-green">Portfolio</a>
-                <a href="#testimonials" class="block py-2 hover:text-aurora-green">Testimonials</a>
-                <a href="#blog" class="block py-2 hover:text-aurora-green">Blog</a>
-                <a href="#contact" class="block py-2 hover:text-aurora-green">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative">
-        <div class="container mx-auto px-6 text-center z-10">
-            <div class="animate-slide-up">
-                <h1 class="text-5xl md:text-7xl font-bold mb-4">
-                    Hey, I'm <span class="gradient-text">Deep Sahu!</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-400 mb-8">AI/ML Engineer | Data Scientist | Software Engineer</p>
-                <p class="text-lg text-gray-500 max-w-2xl mx-auto mb-12">
-                    Building the future through intelligence and innovation. 
-                    <br>Creating technology that changes how the world works.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#portfolio" class="px-8 py-3 bg-gradient-to-r from-aurora-green to-aurora-blue rounded-full text-dark-bg font-semibold hover:shadow-lg hover:shadow-aurora-green/50 transition transform hover:scale-105">
-                        View My Work
-                    </a>
-                    <a href="resume.pdf" class="px-8 py-3 border-2 border-aurora-green rounded-full hover:bg-aurora-green hover:text-dark-bg transition transform hover:scale-105">
-                        Download CV
-                    </a>
-                </div>
-                <div class="mt-12 flex justify-center space-x-6">
-                    <a href="https://github.com/deepsahu21" class="text-2xl hover:text-aurora-green transition"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/deepsahu1" class="text-2xl hover:text-aurora-blue transition"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- Animated particles -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute w-2 h-2 bg-aurora-green rounded-full animate-float" style="top: 20%; left: 10%;"></div>
-            <div class="absolute w-2 h-2 bg-aurora-blue rounded-full animate-float" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
-            <div class="absolute w-2 h-2 bg-aurora-purple rounded-full animate-float" style="top: 40%; left: 60%; animation-delay: 2s;"></div>
-            <div class="absolute w-2 h-2 bg-aurora-pink rounded-full animate-float" style="top: 80%; left: 30%; animation-delay: 3s;"></div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">About Me</h2>
-            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <p class="text-gray-400 leading-relaxed">
-                        I specialize in building intelligent systems that feel alive with purpose. I love finding the balance between creativity and logic by using technology to bring ideas that once felt impossible into reality.
-                    </p>
-                    <p class="text-gray-400 leading-relaxed">
-                        My journey started with curiosity and a deep fascination for how things work. Over time that curiosity turned into a passion for shaping technology that creates real impact. I want to keep building innovations that push the boundries of possiblities and bring the future to the present.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 pt-4">
-                        <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
-                            <div class="text-3xl font-bold text-aurora-green">10+</div>
-                            <div class="text-sm text-gray-400">Projects Completed</div>
-                        </div>
-                        <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
-                            <div class="text-3xl font-bold text-aurora-blue">200+</div>
-                            <div class="text-sm text-gray-400">Github Contributions</div>
-                        </div>
-                        <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
-                            <div class="text-3xl font-bold text-aurora-purple">2+</div>
-                            <div class="text-sm text-gray-400">Years Experience</div>
-                        </div>
-                        <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
-                            <div class="text-3xl font-bold text-aurora-pink">∞</div>
-                            <div class="text-sm text-gray-400">Coffees drank</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-aurora-green via-aurora-blue to-aurora-purple p-1">
-                        <div class="w-full h-full rounded-full bg-dark-bg flex items-center justify-center">
-                            <span class="text-6xl">👨‍💻</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-dark-card/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Work Experience</h2>
-            <div class="max-w-4xl mx-auto space-y-8">
-                <div class="relative pl-8 border-l-2 border-aurora-green">
-                    <div class="absolute -left-2 top-0 w-4 h-4 bg-aurora-green rounded-full"></div>
-                    <div class="bg-dark-card p-6 rounded-lg card-hover">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-aurora-green">Lead Software Engineer</h3>
-                            <span class="text-sm text-gray-400">Sep 2025 - Present</span>
-                        </div>
-                        <p class="text-gray-300 font-medium mb-2">AI@UGA</p>
-                        <p class="text-gray-400">
-                            • Leading a city-scale AI + GIS initiative for the City Of Atlanta, leveraging 80+ years of imagery to deliver advanced insights for
-                            restoration, carbon storage, and community planning. <br>
-                            • Built fully automated ML pipelines generating raster-based environmental intelligence, eliminating 100% of manual
-                            georeferencing in QGIS and saving 300+ hours.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative pl-8 border-l-2 border-aurora-blue">
-                    <div class="absolute -left-2 top-0 w-4 h-4 bg-aurora-blue rounded-full"></div>
-                    <div class="bg-dark-card p-6 rounded-lg card-hover">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-aurora-blue">ML undergraduate researcher</h3>
-                            <span class="text-sm text-gray-400">Aug 2025 - Present</span>
-                        </div>
-                        <p class="text-gray-300 font-medium mb-2">Center for Geospatial Research</p>
-                        <p class="text-gray-400">
-                             • Architected automated pipelines for 100GB+ satellite imagery using Python, TensorFlow, Rasterio, enabling daily coastal
-                            monitoring and reducing manual work by 60%. <br>
-                            • Implemented ResNet-based super-resolution models, improving shoreline clarity by 35%, cutting timelines by 3 months,
-                            and contributing as co-author on 1 publication in progress.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative pl-8 border-l-2 border-aurora-purple">
-                    <div class="absolute -left-2 top-0 w-4 h-4 bg-aurora-purple rounded-full"></div>
-                    <div class="bg-dark-card p-6 rounded-lg card-hover">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-aurora-purple">Software Engineer (Founder)</h3>
-                            <span class="text-sm text-gray-400">Jun 2025 - Nov 2025</span>
-                        </div>
-                        <p class="text-gray-300 font-medium mb-2">Storato</p>
-                        <p class="text-gray-400">
-                            • Built Next.js + PostgreSQL backend with Python/Selenium pipelines, processing 10M+ records for real-time self-storage
-                            analytics and reducing onboarding time by 30%. <br>
-                            • Developed ML-driven dynamic pricing models boosting projected host revenue by 18% and cutting manual pricing time by
-                            80% through instant recommendations.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative pl-8 border-l-2 border-aurora-blue">
-                    <div class="absolute -left-2 top-0 w-4 h-4 bg-aurora-blue rounded-full"></div>
-                    <div class="bg-dark-card p-6 rounded-lg card-hover">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-aurora-blue">Software Engineer</h3>
-                            <span class="text-sm text-gray-400">Apr 2025 - Sep 2025</span>
-                        </div>
-                        <p class="text-gray-300 font-medium mb-2">AI@UGA</p>
-                        <p class="text-gray-400">
-                            • Built an edge ML system using Raspberry Pi for the Athens-Clarke County Water Treatment Plant, enabling real-time
-                            monitoring and saving $2,000+ annually. <br>
-                            • Improved XGBoost accuracy by 30% with sub-100ms latency through optimized edge MLOps.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-20">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Technical Skills</h2>
-
-        <div class="max-w-6xl mx-auto space-y-12">
-
-            <!-- SKILL CARD -->
-            <div class="bg-dark-card/40 rounded-xl p-6 md:p-10 border border-dark-border grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                <!-- LEFT TABS -->
-                <div class="space-y-4 md:border-r md:pr-6 border-dark-border">
-
-                    <button class="skill-tab active-tab w-full text-left px-4 py-3 rounded-lg bg-dark-card border border-aurora-blue text-aurora-blue font-semibold transition"
-                        data-target="tab-lang">
-                        Programming Languages
-                    </button>
-
-                    <button class="skill-tab w-full text-left px-4 py-3 rounded-lg bg-dark-card border border-dark-border text-gray-300 hover:border-aurora-green hover:text-aurora-green transition"
-                        data-target="tab-ml">
-                        Machine Learning Engineering
-                    </button>
-
-                    <button class="skill-tab w-full text-left px-4 py-3 rounded-lg bg-dark-card border border-dark-border text-gray-300 hover:border-aurora-purple hover:text-aurora-purple transition"
-                        data-target="tab-se">
-                        Software Engineering
-                    </button>
-
-                    <button class="skill-tab w-full text-left px-4 py-3 rounded-lg bg-dark-card border border-dark-border text-gray-300 hover:border-aurora-pink hover:text-aurora-pink transition"
-                        data-target="tab-data">
-                        Data & Infrastructure
-                    </button>
-
-                </div>
-
-                <!-- RIGHT SCROLL PANEL -->
-                <div id="skillsPanel" class="col-span-2 h-96 overflow-y-auto pr-4 skills-scroll">
-
-                    <!-- TAB 1: PROGRAMMING LANGUAGES -->
-                    <div id="tab-lang" class="skill-content">
-                        <h3 class="text-2xl font-semibold text-aurora-blue mb-6">Programming Languages</h3>
-
-                        <div class="space-y-6">
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>Python</span><span>100%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
-                                         data-width="100"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>Java</span><span>95%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-blue to-aurora-purple"
-                                         data-width="95"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>SQL</span><span>85%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-purple to-aurora-pink"
-                                         data-width="85"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>R</span><span>80%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-pink to-aurora-green"
-                                         data-width="80"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- TAB 2: MACHINE LEARNING ENGINEERING -->
-                    <div id="tab-ml" class="skill-content hidden">
-                        <h3 class="text-2xl font-semibold text-aurora-green mb-6">Machine Learning Engineering</h3>
-
-                        <div class="space-y-6">
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>Scikit-learn</span><span>100%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
-                                         data-width="100"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>TensorFlow</span><span>100%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-blue to-aurora-purple"
-                                         data-width="100"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>XGBoost</span><span>100%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-purple to-aurora-pink"
-                                         data-width="85"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>U-Net / ResNet</span><span>95%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-pink to-aurora-green"
-                                         data-width="100"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>PyTorch</span><span>85%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
-                                         data-width="95"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- TAB 3: SOFTWARE ENGINEERING -->
-                    <div id="tab-se" class="skill-content hidden">
-                        <h3 class="text-2xl font-semibold text-aurora-purple mb-6">Software Engineering</h3>
-
-                        <div class="space-y-6">
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>REST APIs</span><span>100%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
-                                         data-width="90"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>FastAPI</span><span>90%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-blue to-aurora-purple"
-                                         data-width="80"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>React</span><span>80%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-purple to-aurora-pink"
-                                         data-width="80"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>Node.js</span><span>80%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-pink to-aurora-green"
-                                         data-width="100"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- TAB 4: DATA & INFRASTRUCTURE -->
-                    <div id="tab-data" class="skill-content hidden">
-                        <h3 class="text-2xl font-semibold text-aurora-pink mb-6">Data & Infrastructure</h3>
-
-                        <div class="space-y-6">
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>Data Pipelines</span><span>100%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-green to-aurora-blue"
-                                        data-width="90"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>PostgreSQL</span><span>95%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-blue to-aurora-purple"
-                                        data-width="85"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>ETL Pipelines</span><span>95%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-purple to-aurora-pink"
-                                        data-width="90"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between">
-                                    <span>Databricks</span><span>85%</span>
-                                </div>
-                                <div class="w-full h-2 bg-dark-card rounded-full">
-                                    <div class="progress-fill h-2 rounded-full bg-gradient-to-r from-aurora-pink to-aurora-green"
-                                        data-width="100"></div>
-                                </div>
-                            </div>
-
-                        </div>
-</div>
-
-
-                </div> 
-            </div>
-
-            <!-- TOOLS OUTSIDE CARD -->
-            <div>
-                <h3 class="text-xl font-semibold mb-4 text-aurora-purple">Tools & DevOps</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
-                        <i class="fab fa-git text-2xl mb-2 text-aurora-purple"></i>
-                        <p>Git</p>
-                    </div>
-                    <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
-                        <i class="fas fa-infinity text-2xl mb-2 text-aurora-pink"></i>
-                        <p>CI/CD</p>
-                    </div>
-                    <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
-                        <i class="fab fa-aws text-2xl mb-2 text-aurora-blue"></i>
-                        <p>AWS</p>
-                    </div>
-                    <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
-                        <i class="fab fa-docker text-2xl mb-2 text-aurora-green"></i>
-                        <p>Docker</p>
-                    </div>
-                    
-                    
-                    
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-dark-card/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Services</h2>
-            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center">
-                        <i class="fas fa-laptop-code text-2xl text-dark-bg"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Machine Learning Systems</h3>
-                    <p class="text-gray-400">
-                        Designing and evaluating learning systems with an emphasis on generalization, robustness, and real-world constraints.
-                    </p>
-                </div>
-
-                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center">
-                        <i class="fas fa-solid fa-satellite text-2xl text-dark-bg"></i>
-                        
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Geospatial Intelligence</h3>
-                    <p class="text-gray-400">
-                        Developing machine learning workflows on satellite and spatial data to analyze environmental and land-use dynamics.
-                    </p>
-                </div>
-
-                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center">
-                        <i class="fas fa-solid fa-book text-2xl text-dark-bg"></i>
-                        
-                        
-                        
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Machine Learning Research</h3>
-                    <p class="text-gray-400">
-                        Investigating model behavior, data representation, and performance trade-offs through structured experimentation.
-                    </p>
-                </div>
-                <!--
-                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-pink to-aurora-green flex items-center justify-center">
-                        <i class="fas fa-mobile-alt text-2xl text-dark-bg"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Data Infrastructure</h3>
-                    <p class="text-gray-400">
-                        Scalable pipelines and APIs that move data cleanly between models, services, and applications.
-                    </p>
-                </div>
-
-                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-green to-aurora-purple flex items-center justify-center">
-                        <i class="fas fa-palette text-2xl text-dark-bg"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Applied Research</h3>
-                    <p class="text-gray-400">
-                        From experimental concepts to validated technical implementations through structured investigation.
-                    </p>
-                </div>
-
-                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-pink flex items-center justify-center">
-                        <i class="fas fa-cogs text-2xl text-dark-bg"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">API Integration</h3>
-                    <p class="text-gray-400">
-                        Seamless third-party API integrations and custom API development.
-                    </p>
-                </div>
-            -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Portfolio</h2>
-            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-                <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div class="h-48 bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center">
-                        <i class="fas fa-chart-line text-6xl text-dark-bg"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Quantara (IP)</h3>
-                        <p class="text-gray-400 mb-4">AI-driven stock forecasting platform for market trend analysis and decision support.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
-                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">TensorFlow</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">PostgreSQL</span>
-                            <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">FastAPI</span>
-                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">React</span>
-
-                        </div>
-                        <div class="flex space-x-4">
-                            <!--
-                            <a href="#" class="text-aurora-green hover:text-aurora-blue transition">
-                                <i class="fas fa-external-link-alt"></i> Live
-                            </a>
-                            -->
-                            <a href="https://github.com/deepsahu21/Quantara" class="text-aurora-green hover:text-aurora-blue transition">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center">
-                        <i class="fas fa-solid fa-eye-low-vision text-6xl text-dark-bg"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">EdgeVision</h3>
-                        <p class="text-gray-400 mb-4">Neural and classical edge detection for image understanding.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
-                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">OpenCV</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">PyTorch</span>
-                            <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">U-Net</span>
-                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">ResNet</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <!--
-                            <a href="#" class="text-aurora-green hover:text-aurora-blue transition">
-                                <i class="fas fa-external-link-alt"></i> Live
-                            </a>
-                            -->
-                            <a href="https://github.com/deepsahu21/EdgeVision" class="text-aurora-green hover:text-aurora-blue transition">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div class="h-48 bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center">
-                        <i class="fas fa-cloud text-6xl text-dark-bg"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">WeatherCast</h3>
-                        <p class="text-gray-400 mb-4">Real-time multiplayer gaming platform</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
-                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">Flask</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Bootstrap</span>
-                            <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">Rest APIs</span>
-
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://weather-app-project-p2p8-20itdxg1o-deepsahu21s-projects.vercel.app/" class="text-aurora-green hover:text-aurora-blue transition">
-                                <i class="fas fa-external-link-alt"></i> Live
-                            </a>
-                            <a href="https://github.com/deepsahu21/WeatherCast" class="text-aurora-green hover:text-aurora-blue transition">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-    <!-- Testimonials Section -->
-
-    <!--
-    <section id="testimonials" class="py-20 bg-dark-card/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Client Testimonials</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-dark-card p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center text-xl font-bold text-dark-bg">
-                            JD
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-semibold">John Doe</h4>
-                            <p class="text-sm text-gray-400">CEO, TechStart</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 italic">
-                        "Alex delivered an exceptional product that exceeded our expectations. Their technical expertise
-                        and attention to detail made our project a huge success."
-                    </p>
-                    <div class="mt-4 text-aurora-green">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <div class="bg-dark-card p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center text-xl font-bold text-dark-bg">
-                            SM
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-semibold">Sarah Miller</h4>
-                            <p class="text-sm text-gray-400">Product Manager, InnovateCo</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 italic">
-                        "Working with Alex was a fantastic experience. They brought our vision to life with
-                        creativity and technical excellence."
-                    </p>
-                    <div class="mt-4 text-aurora-blue">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    -->
-
-
-    <!--  Publications -->
-
-    <!--
-    <section id="blog" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Latest Blog Posts</h2>
-            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-                <article class="bg-dark-card rounded-lg overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-br from-aurora-green to-aurora-blue"></div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-400 mb-2">March 15, 2024</div>
-                        <h3 class="text-xl font-semibold mb-3">The Future of Web Development</h3>
-                        <p class="text-gray-400 mb-4">
-                            Exploring emerging trends and technologies shaping the future of web development...
-                        </p>
-                        <a href="#" class="text-aurora-green hover:text-aurora-blue transition">
-                            Read More →
-                        </a>
-                    </div>
-                </article>
-
-                <article class="bg-dark-card rounded-lg overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-purple"></div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-400 mb-2">March 10, 2024</div>
-                        <h3 class="text-xl font-semibold mb-3">Building Scalable Applications</h3>
-                        <p class="text-gray-400 mb-4">
-                            Best practices for building applications that scale efficiently with growing demand...
-                        </p>
-                        <a href="#" class="text-aurora-green hover:text-aurora-blue transition">
-                            Read More →
-                        </a>
-                    </div>
-                </article>
-
-                <article class="bg-dark-card rounded-lg overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-br from-aurora-purple to-aurora-pink"></div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-400 mb-2">March 5, 2024</div>
-                        <h3 class="text-xl font-semibold mb-3">UI/UX Design Principles</h3>
-                        <p class="text-gray-400 mb-4">
-                            Essential design principles for creating user-friendly and aesthetic interfaces...
-                        </p>
-                        <a href="#" class="text-aurora-green hover:text-aurora-blue transition">
-                            Read More →
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    -->
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-dark-card/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center">
-                                <i class="fas fa-envelope text-dark-bg"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-400">Email</p>
-                                <p>Deep.Sahu1205@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center">
-                                <i class="fas fa-phone text-dark-bg"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-400">Phone</p>
-                                <p>+1 (312) 868-8703</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center">
-                                <i class="fas fa-map-marker-alt text-dark-bg"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-400">Location</p>
-                                <p>Atlanta, Georgia</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <form
-                    action="https://formspree.io/f/maqwwopj"
-                    method="POST"
-                    class="space-y-4"
-                    id="contact-form"
-                    >
-                    <!-- Name -->
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        required
-                        class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg focus:outline-none focus:border-aurora-green"
-                    >
-
-                    <!-- Email -->
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email"
-                        required
-                        class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg focus:outline-none focus:border-aurora-green"
-                    >
-
-                    <!-- Message -->
-                    <textarea
-                        name="message"
-                        placeholder="Your Message"
-                        rows="4"
-                        required
-                        class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg focus:outline-none focus:border-aurora-green"
-                    ></textarea>
-
-                    <!-- Allows you to reply directly -->
-                    <input type="hidden" name="_replyto" value="%email%">
-
-                    <!-- Disable spam bots -->
-                    <input type="text" name="_gotcha" style="display:none">
-                    
-                    <button
-                        type="submit"
-                        class="w-full px-8 py-3 bg-gradient-to-r from-aurora-green to-aurora-blue rounded-lg text-dark-bg font-semibold hover:shadow-lg hover:shadow-aurora-green/50 transition transform hover:scale-105"
-                    >
-                        Send Message
-                    </button>
-                    
-                    <input type="hidden" name="_subject" value="New message from portfolio site">
-
-                    <!-- Success message -->
-                    <p id="form-success" class="hidden text-aurora-green text-center mt-4">
-                        ✅ Message sent successfully! I’ll get back to you soon.
-                    </p>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-dark-border">
-        <div class="container mx-auto px-6 text-center">
-            <div class="mb-4">
-                <a href="#" class="text-2xl mx-2 hover:text-aurora-green transition"><i class="fab fa-github"></i></a>
-                <a href="#" class="text-2xl mx-2 hover:text-aurora-blue transition"><i class="fab fa-linkedin"></i></a>
-
-            </div>
-            <p class="text-gray-400">
-                © 2024 Alex Aurora. Built with
-                <a href="https://github.com/OSSPhilippines/freefolio" class="text-aurora-green hover:text-aurora-blue transition">
-                    Freefolio
-                </a>
-            </p>
-        </div>
-    </footer>
+    <!-- ============================================================
+         All sections are loaded from the /sections/ folder.
+         To edit a section, open the corresponding file:
+           sections/nav.html         – Navigation bar
+           sections/home.html        – Hero / Home section
+           sections/about.html       – About Me
+           sections/experience.html  – Work Experience
+           sections/skills.html      – Technical Skills
+           sections/services.html    – Services
+           sections/portfolio.html   – Portfolio / Projects
+           sections/testimonials.html – Client Testimonials
+           sections/blog.html        – Publications / Blog
+           sections/contact.html     – Contact form
+           sections/footer.html      – Footer
+         ============================================================ -->
+
+    <div id="section-nav"></div>
+    <div id="section-home"></div>
+    <div id="section-about"></div>
+    <div id="section-experience"></div>
+    <div id="section-skills"></div>
+    <div id="section-services"></div>
+    <div id="section-portfolio"></div>
+    <div id="section-testimonials"></div>
+    <div id="section-blog"></div>
+    <div id="section-contact"></div>
+    <div id="section-footer"></div>
 
     <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+        /**
+         * Loads all section HTML files into their placeholder divs.
+         * After all sections are loaded, interactive scripts are initialised.
+         */
+        const sections = [
+            { id: 'section-nav', file: 'sections/nav.html' },
+            { id: 'section-home', file: 'sections/home.html' },
+            { id: 'section-about', file: 'sections/about.html' },
+            { id: 'section-experience', file: 'sections/experience.html' },
+            { id: 'section-skills', file: 'sections/skills.html' },
+            { id: 'section-services', file: 'sections/services.html' },
+            { id: 'section-portfolio', file: 'sections/portfolio.html' },
+            { id: 'section-testimonials', file: 'sections/testimonials.html' },
+            { id: 'section-blog', file: 'sections/blog.html' },
+            { id: 'section-contact', file: 'sections/contact.html' },
+            { id: 'section-footer', file: 'sections/footer.html' },
+        ];
+
+        async function loadSections() {
+            await Promise.all(
+                sections.map(async ({ id, file }) => {
+                    try {
+                        const response = await fetch(file);
+                        if (response.ok) {
+                            document.getElementById(id).innerHTML = await response.text();
+                        }
+                    } catch (e) {
+                        console.warn(`Could not load ${file}:`, e);
+                    }
+                })
+            );
+
+            // Once all HTML is in the DOM, initialise interactive behaviour
+            initMobileMenu();
+            initScrollAnimations();
+            initSmoothScroll();
+            initSkillsTabs();
+            initContactForm();
         }
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobileMenu').classList.add('hidden');
+        /* ── Mobile menu ────────────────────────────────────── */
+        function initMobileMenu() {
+            window.toggleMobileMenu = function () {
+                const menu = document.getElementById('mobileMenu');
+                if (menu) menu.classList.toggle('hidden');
+            };
+
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                });
             });
-        });
+        }
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        /* ── Scroll-triggered animations ────────────────────── */
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-slide-up');
-                }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-slide-up');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
             });
-        }, observerOptions);
+        }
 
-        // Observe sections for animation
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+        /* ── Smooth scroll for anchor links ─────────────────── */
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+        /* ── Skills tab switcher + progress bar animation ──── */
+        function initSkillsTabs() {
+            const tabs = document.querySelectorAll('.skill-tab');
+            const contents = document.querySelectorAll('.skill-content');
+
+            function getBarPercent(bar) {
+                const labelRow = bar.parentElement.previousElementSibling;
+                if (!labelRow) return 0;
+                const percentSpan = labelRow.querySelector('span:last-child');
+                if (!percentSpan) return 0;
+                const match = percentSpan.textContent.match(/(\d+)/);
+                return match ? parseInt(match[1], 10) : 0;
+            }
+
+            function activateTab(target) {
+                contents.forEach(c => c.classList.add('hidden'));
+                const panel = document.getElementById(target);
+                if (!panel) return;
+                panel.classList.remove('hidden');
+
+                const bars = panel.querySelectorAll('.progress-fill');
+                bars.forEach(bar => {
+                    const width = getBarPercent(bar);
+                    bar.style.transition = "none";
+                    bar.style.width = "0%";
+                    void bar.offsetWidth;
+                    bar.style.transition = "width 0.7s ease-out";
+                    bar.style.width = width + "%";
+                });
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach(t => {
+                        t.classList.remove("border-aurora-blue", "text-aurora-blue", "active-tab");
+                        t.classList.add("border-dark-border", "text-gray-300");
                     });
+                    tab.classList.add("border-aurora-blue", "text-aurora-blue", "active-tab");
+                    tab.classList.remove("text-gray-300");
+                    activateTab(tab.dataset.target);
+                });
+            });
+
+            activateTab("tab-lang");
+        }
+
+        /* ── Contact form submission ────────────────────────── */
+        function initContactForm() {
+            const form = document.getElementById("contact-form");
+            const successMsg = document.getElementById("form-success");
+            if (!form) return;
+
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { Accept: "application/json" }
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    successMsg.classList.remove("hidden");
+                } else {
+                    alert("Something went wrong. Please try again.");
                 }
             });
-        });
+        }
+
+        // Kick everything off
+        loadSections();
     </script>
-    <script>
-// TAB SWITCHER + PROGRESS BAR ANIMATION
-const tabs = document.querySelectorAll('.skill-tab');
-const contents = document.querySelectorAll('.skill-content');
-
-// Helper: get % from the text on the right (e.g., "85%")
-function getBarPercent(bar) {
-    // bar -> outer progress div -> flex row above it
-    const labelRow = bar.parentElement.previousElementSibling;
-    if (!labelRow) return 0;
-
-    const percentSpan = labelRow.querySelector('span:last-child');
-    if (!percentSpan) return 0;
-
-    const match = percentSpan.textContent.match(/(\d+)/);
-    return match ? parseInt(match[1], 10) : 0;
-}
-
-function activateTab(target) {
-    // hide all content
-    contents.forEach(c => c.classList.add('hidden'));
-
-    // show selected panel
-    const panel = document.getElementById(target);
-    if (!panel) return;
-    panel.classList.remove('hidden');
-
-    // animate progress bars in this panel based on the % text
-    const bars = panel.querySelectorAll('.progress-fill');
-    bars.forEach(bar => {
-        const width = getBarPercent(bar); // <- always synced to text
-
-        bar.style.transition = "none";   // reset instantly
-        bar.style.width = "0%";          // start empty
-        void bar.offsetWidth;            // force reflow
-        bar.style.transition = "width 0.7s ease-out";
-        bar.style.width = width + "%";   // animate to target %
-    });
-}
-
-tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-        // remove active styles
-        tabs.forEach(t => {
-            t.classList.remove("border-aurora-blue", "text-aurora-blue", "active-tab");
-            t.classList.add("border-dark-border", "text-gray-300");
-        });
-
-        // highlight active tab
-        tab.classList.add("border-aurora-blue", "text-aurora-blue", "active-tab");
-        tab.classList.remove("text-gray-300");
-
-        // switch content
-        activateTab(tab.dataset.target);
-    });
-});
-
-// load default tab
-activateTab("tab-lang");
-</script>
-<script>
-  const form = document.getElementById("contact-form");
-  const successMsg = document.getElementById("form-success");
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { Accept: "application/json" }
-    });
-
-    if (response.ok) {
-      form.reset();
-      successMsg.classList.remove("hidden");
-    } else {
-      alert("Something went wrong. Please try again.");
-    }
-  });
-</script>
-
-
 
 </body>
+
 </html>

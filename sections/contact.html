@@ -1,0 +1,75 @@
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-dark-card/30">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center">
+                            <i class="fas fa-envelope text-dark-bg"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400">Email</p>
+                            <p>Deep.Sahu1205@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center">
+                            <i class="fas fa-phone text-dark-bg"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400">Phone</p>
+                            <p>+1 (312) 868-8703</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-dark-bg"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400">Location</p>
+                            <p>Atlanta, Georgia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://formspree.io/f/maqwwopj" method="POST" class="space-y-4" id="contact-form">
+                    <!-- Name -->
+                    <input type="text" name="name" placeholder="Your Name" required
+                        class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg focus:outline-none focus:border-aurora-green">
+
+                    <!-- Email -->
+                    <input type="email" name="email" placeholder="Your Email" required
+                        class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg focus:outline-none focus:border-aurora-green">
+
+                    <!-- Message -->
+                    <textarea name="message" placeholder="Your Message" rows="4" required
+                        class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg focus:outline-none focus:border-aurora-green"></textarea>
+
+                    <!-- Allows you to reply directly -->
+                    <input type="hidden" name="_replyto" value="%email%">
+
+                    <!-- Disable spam bots -->
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <button type="submit"
+                        class="w-full px-8 py-3 bg-gradient-to-r from-aurora-green to-aurora-blue rounded-lg text-dark-bg font-semibold hover:shadow-lg hover:shadow-aurora-green/50 transition transform hover:scale-105">
+                        Send Message
+                    </button>
+
+                    <input type="hidden" name="_subject" value="New message from portfolio site">
+
+                    <!-- Success message -->
+                    <p id="form-success" class="hidden text-aurora-green text-center mt-4">
+                        ✅ Message sent successfully! I'll get back to you soon.
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
