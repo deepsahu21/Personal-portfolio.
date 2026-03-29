@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>All Projects – Deep Sahu</title>
-    <meta name="description" content="Browse all projects by Deep Sahu — AI, ML, full-stack, and data-driven solutions.">
+    <meta name="description"
+        content="Browse all projects by Deep Sahu — AI, ML, full-stack, and data-driven solutions.">
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -67,21 +68,31 @@
 
         .aurora-overlay {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 100vh;
             background:
-                radial-gradient(ellipse at top left, rgba(0,255,170,0.15) 0%, transparent 40%),
-                radial-gradient(ellipse at top right, rgba(0,170,255,0.15) 0%, transparent 40%),
-                radial-gradient(ellipse at bottom left, rgba(170,0,255,0.1) 0%, transparent 40%),
-                radial-gradient(ellipse at bottom right, rgba(255,0,170,0.1) 0%, transparent 40%);
+                radial-gradient(ellipse at top left, rgba(0, 255, 170, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at top right, rgba(0, 170, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at bottom left, rgba(170, 0, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at bottom right, rgba(255, 0, 170, 0.1) 0%, transparent 40%);
             pointer-events: none;
             opacity: 0.7;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #0a0e1a; }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(to bottom, #00ffaa, #00aaff);
             border-radius: 5px;
@@ -98,10 +109,11 @@
             transition: all 0.3s ease;
             border: 1px solid transparent;
         }
+
         .card-hover:hover {
             border-color: #00ffaa;
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,255,170,0.2);
+            box-shadow: 0 10px 30px rgba(0, 255, 170, 0.2);
         }
 
         @keyframes slideUp {
@@ -109,6 +121,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -121,11 +134,26 @@
             transform: translateY(30px);
             animation: slideUp 0.6s ease-out forwards;
         }
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .project-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
     </style>
 </head>
 
@@ -135,7 +163,8 @@
     <!-- Top Bar -->
     <nav class="fixed top-0 w-full bg-dark-bg/90 backdrop-blur-md border-b border-dark-border z-50">
         <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-            <a href="index.html" class="inline-flex items-center gap-2 text-aurora-green hover:text-aurora-blue transition font-semibold">
+            <a href="index.html"
+                class="inline-flex items-center gap-2 text-aurora-green hover:text-aurora-blue transition font-semibold">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
             <div class="text-2xl font-bold gradient-text">All Projects</div>
@@ -155,29 +184,33 @@
 
                 <!-- LumenRoute -->
                 <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div class="h-48 bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center">
+                    <div
+                        class="h-48 bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center">
                         <i class="fas fa-route text-6xl text-dark-bg"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-1">LumenRoute</h3>
                         <p class="text-xs text-gray-500 mb-2 italic">UGAHacks – Hackathon</p>
-                        <p class="text-gray-400 mb-4">AI commute and hazard intelligence — monitored 50+ GDOT camera feeds
-                            for hazards in real-time using Gemini Flash, with 94% crowdsourced report verification accuracy.
+                        <p class="text-gray-400 mb-4">AI commute and hazard intelligence — monitored 50+ GDOT camera
+                            feeds
+                            for hazards in real-time using Gemini Flash, with 94% crowdsourced report verification
+                            accuracy.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
-                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">Gemini Flash</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Supabase</span>
+                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">Gemini
+                                Flash</span>
+                            <span
+                                class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Supabase</span>
                             <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">TypeScript</span>
                             <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">React</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="https://github.com/deepsahu21"
+                            <a href="https://github.com/anishbanda/UGAHacksXI"
                                 class="text-aurora-green hover:text-aurora-blue transition">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="#" target="_blank"
-                                class="text-aurora-blue hover:text-aurora-purple transition">
+                            <a href="#" target="_blank" class="text-aurora-blue hover:text-aurora-purple transition">
                                 <i class="fas fa-globe"></i> Website
                             </a>
                         </div>
@@ -186,18 +219,21 @@
 
                 <!-- ChronoForest -->
                 <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center">
+                    <div
+                        class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center">
                         <i class="fas fa-tree text-6xl text-dark-bg"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-1">ChronoForest</h3>
                         <p class="text-xs text-gray-500 mb-2 italic">City of Atlanta</p>
-                        <p class="text-gray-400 mb-4">Deep learning forest age mapping — led classification across 80 years
+                        <p class="text-gray-400 mb-4">Deep learning forest age mapping — led classification across 80
+                            years
                             of aerial imagery using a ResNet-DeepLabV3 pipeline with spatial cross-validation.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
                             <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">PyTorch</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Rasterio</span>
+                            <span
+                                class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Rasterio</span>
                             <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">QGIS</span>
                         </div>
                         <div class="flex space-x-4">
@@ -211,19 +247,22 @@
 
                 <!-- EcoSense -->
                 <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div class="h-48 bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center">
+                    <div
+                        class="h-48 bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center">
                         <i class="fas fa-leaf text-6xl text-dark-bg"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-1">EcoSense</h3>
                         <p class="text-xs text-gray-500 mb-2 italic">Athens-Clarke County</p>
                         <p class="text-gray-400 mb-4">Edge ML environmental forecasting — predicted contamination levels
-                            with 76% accuracy via an XGBoost model on Raspberry Pi, with a real-time Streamlit dashboard.
+                            with 76% accuracy via an XGBoost model on Raspberry Pi, with a real-time Streamlit
+                            dashboard.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
                             <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">XGBoost</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">FastAPI</span>
+                            <span
+                                class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">FastAPI</span>
                             <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">Streamlit</span>
                         </div>
                         <div class="flex space-x-4">
@@ -237,18 +276,22 @@
 
                 <!-- Quantara -->
                 <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div class="h-48 bg-gradient-to-br from-aurora-pink to-aurora-green flex items-center justify-center">
+                    <div
+                        class="h-48 bg-gradient-to-br from-aurora-pink to-aurora-green flex items-center justify-center">
                         <i class="fas fa-chart-line text-6xl text-dark-bg"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-1">Quantara</h3>
                         <p class="text-xs text-gray-500 mb-2 italic">Personal Project</p>
-                        <p class="text-gray-400 mb-4">AI stock forecasting platform — fused market data with NLP sentiment
-                            via FinBERT and XGBoost, with 22% accuracy gain via backtesting, deployed on AWS Kubernetes.</p>
+                        <p class="text-gray-400 mb-4">AI stock forecasting platform — fused market data with NLP
+                            sentiment
+                            via FinBERT and XGBoost, with 22% accuracy gain via backtesting, deployed on AWS Kubernetes.
+                        </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
                             <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">XGBoost</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">PostgreSQL</span>
+                            <span
+                                class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">PostgreSQL</span>
                             <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">FastAPI</span>
                             <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">React</span>
                         </div>
@@ -257,7 +300,7 @@
                                 class="text-aurora-green hover:text-aurora-blue transition">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="#" target="_blank"
+                            <a href="https://quantara-ds.vercel.app/" target="_blank"
                                 class="text-aurora-blue hover:text-aurora-purple transition">
                                 <i class="fas fa-globe"></i> Website
                             </a>
@@ -267,24 +310,29 @@
 
                 <!-- WeatherCast (NEW) -->
                 <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-green flex items-center justify-center">
+                    <div
+                        class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-green flex items-center justify-center">
                         <i class="fas fa-cloud-sun text-6xl text-dark-bg"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-1">WeatherCast</h3>
                         <p class="text-xs text-gray-500 mb-2 italic">Personal Project</p>
-                        <p class="text-gray-400 mb-4">Real-time weather forecasting app — aggregates multi-source
-                            meteorological data with interactive radar maps and 7-day ML-enhanced predictions.</p>
+                        <p class="text-gray-400 mb-4">A Flask-based weather application using Leaflet and OpenWeatherMap
+                            API. Fetch and display current weather data by city/state/country or by selecting a location
+                            on a map.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
-                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">React</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">OpenWeather API</span>
-                            <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">Node.js</span>
+                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">REST APIs</span>
+                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Flask</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="https://github.com/deepsahu21"
+                            <a href="https://github.com/deepsahu21/WeatherCast"
                                 class="text-aurora-green hover:text-aurora-blue transition">
                                 <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://weather-app-project-sigma.vercel.app/" target="_blank"
+                                class="text-aurora-blue hover:text-aurora-purple transition">
+                                <i class="fas fa-globe"></i> Website
                             </a>
                         </div>
                     </div>
