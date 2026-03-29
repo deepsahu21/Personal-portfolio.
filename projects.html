@@ -104,6 +104,17 @@
             box-shadow: 0 10px 30px rgba(0,255,170,0.2);
         }
 
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Staggered card entrance */
         .project-card {
             opacity: 0;
