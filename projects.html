@@ -154,6 +154,10 @@
         .project-card:nth-child(5) {
             animation-delay: 0.5s;
         }
+
+        .project-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
     </style>
 </head>
 
@@ -181,7 +185,6 @@
             </p>
 
             <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
 
                 <!-- Quantara -->
                 <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
@@ -216,6 +219,72 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- LumenRoute -->
+                <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
+                    <div
+                        class="h-48 bg-gradient-to-br from-amber-500/90 to-aurora-blue flex items-center justify-center">
+                        <i class="fas fa-route text-6xl text-dark-bg"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">LumenRoute</h3>
+                        <p class="text-xs text-gray-500 mb-2 italic">UGAHacks 11 - Hackathon</p>
+                        <p class="text-gray-400 mb-4">Real-time traffic safety and eco-routing using Gemini Vision on GDOT
+                            camera feeds. Guardian hazard map with 50+ live cameras, Eco-Route Planner blending safety,
+                            speed, and CO₂ with avoidance waypoints, and Scout Mode — AI-verified hazard reports.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">React</span>
+                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">TypeScript</span>
+                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Bun · Hono</span>
+                            <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">Leaflet</span>
+                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Gemini 2.0</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/deepsahu21/LumenRoute"
+                                class="text-aurora-green hover:text-aurora-blue transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://lumen-route-demo.vercel.app/" target="_blank"
+                                class="text-aurora-blue hover:text-aurora-purple transition">
+                                <i class="fas fa-globe"></i> Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MenuMind -->
+                <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
+                    <div
+                        class="h-48 bg-gradient-to-br from-orange-500/85 to-aurora-purple flex items-center justify-center">
+                        <i class="fas fa-utensils text-6xl text-dark-bg"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">MenuMind</h3>
+                        <p class="text-xs text-gray-500 mb-2 italic">Personal Project</p>
+                        <p class="text-gray-400 mb-4">Multi-LLM RAG evaluation for restaurant menu Q&A. LangChain LCEL
+                            with Pinecone and Gemini Flash, plus benchmarking against Groq (Llama&nbsp;3) and Claude
+                            Haiku — RAGAs scores for faithfulness and answer relevancy. Multi-source ingestion: PDF,
+                            URL, plain text.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">LangChain</span>
+                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">Pinecone</span>
+                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">FastAPI</span>
+                            <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">React</span>
+                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">RAGAs</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/deepsahu21/MenuMind"
+                                class="text-aurora-green hover:text-aurora-blue transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://menu-mind-rust.vercel.app/" target="_blank"
+                                class="text-aurora-blue hover:text-aurora-purple transition">
+                                <i class="fas fa-globe"></i> Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- ChronoForest -->
                 <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
                     <div
@@ -239,6 +308,36 @@
                             <a href="https://github.com/deepsahu21"
                                 class="text-aurora-green hover:text-aurora-blue transition">
                                 <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WeatherCast -->
+                <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
+                    <div
+                        class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-green flex items-center justify-center">
+                        <i class="fas fa-cloud-sun text-6xl text-dark-bg"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">WeatherCast</h3>
+                        <p class="text-xs text-gray-500 mb-2 italic">Personal Project</p>
+                        <p class="text-gray-400 mb-4">A Flask-based weather application using Leaflet and OpenWeatherMap
+                            API. Fetch and display current weather data by city/state/country or by selecting a location
+                            on a map.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
+                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">REST APIs</span>
+                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Flask</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/deepsahu21/WeatherCast"
+                                class="text-aurora-green hover:text-aurora-blue transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://weather-app-project-sigma.vercel.app/" target="_blank"
+                                class="text-aurora-blue hover:text-aurora-purple transition">
+                                <i class="fas fa-globe"></i> Website
                             </a>
                         </div>
                     </div>
@@ -272,39 +371,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- WeatherCast (NEW) -->
-                <div class="project-card bg-dark-card rounded-lg overflow-hidden card-hover group">
-                    <div
-                        class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-green flex items-center justify-center">
-                        <i class="fas fa-cloud-sun text-6xl text-dark-bg"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-1">WeatherCast</h3>
-                        <p class="text-xs text-gray-500 mb-2 italic">Personal Project</p>
-                        <p class="text-gray-400 mb-4">A Flask-based weather application using Leaflet and OpenWeatherMap
-                            API. Fetch and display current weather data by city/state/country or by selecting a location
-                            on a map.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Python</span>
-                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">REST APIs</span>
-                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Flask</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/deepsahu21/WeatherCast"
-                                class="text-aurora-green hover:text-aurora-blue transition">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="https://weather-app-project-sigma.vercel.app/" target="_blank"
-                                class="text-aurora-blue hover:text-aurora-purple transition">
-                                <i class="fas fa-globe"></i> Website
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
 
             </div>
 
